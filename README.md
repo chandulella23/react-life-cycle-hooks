@@ -1,68 +1,67 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was created using [NPX](https://www.npmjs.com/package/npx) 
 
-## Available Scripts
+## Project Setup
 
-In the project directory, you can run:
+After installing [NPX](https://www.npmjs.com/package/npx), open your terminal and type `npx creat-react-app react-life-cycle-hooks` to create your project in React. 
+It will take few seconds to install require dependencies for your project setup.
 
-### `npm start`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Project Lookup
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Once it's done head towards your `react-life-cycle-hooks` -> `public` -> `index.html`. This is your main `(only)` HTML file in your project, where you can see **<div id="root"></div>** the root element.
 
-### `npm test`
+Make required changes in your index and app js files to setup your own project. Once it's done try creating few more `Class-Based` Components in the same root level to know more in detail about **React Life Cycle Hooks**
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### React Life Cycle Hooks
 
-### `npm run build`
+Constructor
+Mounting
+Updating
+Unmounting
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Constructor
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+This is the first thing that get executed for a component and here we can setup our initial `state` of the component. Dont make any Api requests or setState in this
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Mounting
 
-### `npm run eject`
+Mounting will be a process and executes once the components gets `loaded/reloaded` 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## componentWillMount
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This will sit between constructor & render() and executes just before we render our elements into DOM. Dont make any Api requests and better not to setState in this as still our DOM doesn't get fit yet. Used to make any changes to initla state
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Render
+This will make our DOM creation and displays the view that actually what we coded for
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## componentDidMount
 
-## Learn More
+This will execute right after render does executed completely with child components and actually this could be the ideal place to make api requests or to setState of our component
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Updating
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Updating will be a process once the components gets `updated` i.e.. it will not work for the first time of page load , it will start working when after page gets loaded and had any changes to it state 
 
-### Code Splitting
+## componentWillReceiveProps(nextProps)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+First thing in child components to execute when some thing got updated in Parent Component and it will receive updated props as parameter `nextProps` from parent component. We can make comparision with `this.props` & `nextProps`
 
-### Analyzing the Bundle Size
+##shouldComponentUpdate(nextProps, nextState) 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+After componentWillReceiveProps() this will get executed and here we have to return `true` or `false` to render our changes into DOM or not. If true render() will does it changes to DOM. If not, render won't make any changes to DOM
 
-### Making a Progressive Web App
+## Render
+This will make our DOM updation where it requires and displays the view that actually what we changed for
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+## componentDidUpdate(prevProps,prevState)
 
-### Advanced Configuration
+This will execute after completely rendering our changes to DOM and it holds prev props and state
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+### UnMounting
+Cleaning up and destroying process of component 
 
-### Deployment
+## componentWillUnmount
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+componentWillUnmount is the last function to be called immediately before the component is removed from the DOM. It is generally used to perform clean-up for any DOM-elements
 
-### `npm run build` fails to minify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
