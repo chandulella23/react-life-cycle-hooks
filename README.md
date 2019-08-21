@@ -8,7 +8,7 @@ It will take few seconds to install require dependencies for your project setup.
 
 # Project Lookup
 
-Once it's done head towards your **react-life-cycle-hooks -> public -> index.html**. This is your main `only)` HTML file in your project, where you can see **<div id="root"></div>** the root element.
+Once it's done head towards your **react-life-cycle-hooks -> public -> index.html**. This is your main `(only)` HTML file in your project, where you can see **<div id="root"></div>** the root element.
 
 Make required changes in your index and app js files to setup your own project. Once it's done try creating few more **Class-Based** Components in the same root level to know more in detail about **React Life Cycle Hooks**
 
@@ -29,18 +29,18 @@ Mounting will be a process and executes once the components gets `loaded/reloade
 
 #### componentWillMount
 
-This will sit between constructor & render() and executes just before we render our elements into DOM. Dont make any Api requests and better not to setState in this as still our DOM doesn't get fit yet. Used to make any changes to initla state
+This will sit between constructor & render() and executes just before we render our elements into DOM. Dont make any Api requests as still our DOM doesn't get fit yet. Used to make any changes to initla state
 
 #### Render
 This will make our DOM creation and displays the view that actually what we coded for
 
 #### componentDidMount
 
-This will execute right after render does executed completely with child components and actually this could be the ideal place to make api requests or to setState of our component
+This will execute right after render does executed completely with child components and actually this could be the ideal place to make api requests or to setState for our component
 
 # Updating
 
-Updating will be a process once the components gets `updated` i.e.. it will not work for the first time of page load , it will start working when after page gets loaded and had any changes to it state 
+Updating will be a process once the components gets `updated` i.e.. it will not work for the first time of page load , it will start working when after page gets loaded and had any changes to it state or props. **Never try to setState in any of the updating process because it leads to infinite rendering and it throws an error if you used so**
 
 #### componentWillReceiveProps(nextProps)
 
